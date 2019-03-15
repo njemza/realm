@@ -1,0 +1,58 @@
+<div role="document">
+  <div>
+    <form class="form-horizontal" id="add-form" [formGroup]="addAddressBookForm" (ngSubmit)="onAddressBookFormSubmit()">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="add-modal-label">Add Address Book</h4>
+      </div>
+      <div class="modal-body">        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-10">
+            <input id="firstName" type="text" class="form-control" formControlName="firstName" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-10">
+            <input id="lastName" type="text" class="form-control" formControlName="lastName" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Mobile Number</label>
+          <div class="col-sm-10">
+            <input id="mobileNumber" type="text" class="form-control" formControlName="mobileNumber" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Home Number</label>
+          <div class="col-sm-10">
+            <input id="homeNumber" type="text" class="form-control" formControlName="homeNumber" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Office Number</label>
+          <div class="col-sm-10">
+            <input id="officeNumber" type="text" class="form-control" formControlName="officeNumber" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email Address</label>
+          <div class="col-sm-10">
+            <!-- <input id="emailAddress" class="form-control" formControlName="emailAddress" type="email" /> -->
+            <input id="emailAddress" type="text" class="form-control" formControlName="emailAddress" />
+          </div>
+          <!-- <div class="md-errors-spacer" [hidden]="emailAddress.valid || emailAddress.untouched">            
+            <div *ngIf="emailAddress.errors && emailAddress.errors.pattern">
+                Email address is invalid
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

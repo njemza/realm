@@ -1,21 +1,56 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
 <router-outlet></router-outlet>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="text-align:center;">
+      <h3>Liso Mbiza - Address Book</h3>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-md-8">
+      <span (click)="addAddressBook()" class="btn btn-primary btn-xs">Add Address Book</span>
+      <br /><br />
+      <!-- <form class="form-inline md-form form-sm active-pink active-pink-2" id="search-form" [formGroup]="searchAddressBookForm" (ngSubmit)="onSearchAddressBookFormSubmit()">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" ng-model="searchText" mdbInput>
+        <button type="submit" (click)="searchAddressBook(searchText)">Submit</button>
+      </form> -->
+      <div class="search-container">
+        <form action="/action_page.php" id="search-form" [formGroup]="searchAddressBookForm" (ngSubmit)="onSearchAddressBookFormSubmit()">
+          <input type="text" placeholder="Search.." name="searchText">
+          <button type="submit" (click)="searchAddressBook(searchText)">Submit</button>
+        </form>
+      </div>
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th>Address Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Mobile Number</th>
+            <th>Home Number</th>            
+            <th>Office Number</th>            
+            <th>Email Address</th>            
+            <th>Edit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of addressBookList">
+              <td>{{item.addressBookId}}</td>
+              <td>{{item.firstName}}</td>
+              <td>{{item.lastName}}</td>
+              <td>{{item.mobileNumber}}</td>              
+              <td>{{item.homeNumber}}</td> 
+              <td>{{item.officeNumber}}</td> 
+              <td>{{item.emailAddress}}</td> 
+              <td><span class="btn btn-primary btn-xs" (click)="editAddressBook(item.addressBookId)">
+                  <span class="glyphicon glyphicon-pencil"></span></span></td>
+              <td><span class="btn btn-danger btn-xs" (click)="deleteAddressBook(item.addressBookId, item.firstName)">
+                  <span class="glyphicon glyphicon-trash"></span></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
