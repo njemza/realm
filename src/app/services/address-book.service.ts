@@ -7,18 +7,21 @@ import { BehaviorSubject } from "rxjs";
 })
 export class AddressBookService {
   private readonly baseURL: string;
-  addressIdSource = new BehaviorSubject<number>(0);
+  addressIdSource = new BehaviorSubject<number>(0);  
   addressIdData: any;
+  searchTextSource = new BehaviorSubject<string>("");  
+  searchTextData: any;
 
   constructor(private http: HttpClient) { 
     this.baseURL = "http://localhost:60460/api/addressBook/";
     this.addressIdData = this.addressIdSource.asObservable();
+    this.searchTextData = this.searchTextSource.asObservable();
   }
 
-  searchAddressBook(searchText: any){
+  searchAddressBook(searchText: string){
     let header = new HttpHeaders();
     header.append('Content-Type', 'applications/json');
-    return this.http.get(this.baseURL + "searchAddressBook?search="+searchText, {headers: header})
+    return this.http.get(this.baseURL + "searchAddressBook?searchText="+searchText, {headers: header})
   }
 
   getAddressBookList(){

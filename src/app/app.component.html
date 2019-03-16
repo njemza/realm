@@ -9,18 +9,13 @@
   <div class="row">
     <div class="col-md-8">
       <span (click)="addAddressBook()" class="btn btn-primary btn-xs">Add Address Book</span>
-      <br /><br />
-      <!-- <form class="form-inline md-form form-sm active-pink active-pink-2" id="search-form" [formGroup]="searchAddressBookForm" (ngSubmit)="onSearchAddressBookFormSubmit()">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" ng-model="searchText" mdbInput>
-        <button type="submit" (click)="searchAddressBook(searchText)">Submit</button>
-      </form> -->
-      <div class="search-container">
-        <form action="/action_page.php" id="search-form" [formGroup]="searchAddressBookForm" (ngSubmit)="onSearchAddressBookFormSubmit()">
-          <input type="text" placeholder="Search.." name="searchText">
-          <button type="submit" (click)="searchAddressBook(searchText)">Submit</button>
-        </form>
-      </div>
+      <br /><br />   
+      <!-- <div class="table-responsive">
+        <div class="search-container">        
+          <input id="searchText" type="text" placeholder="Search.." name="searchText" [(ngModel)]="model.searchText" ng-value="searchText">
+          <button type="submit" (click)="searchAddressBook(searchText)">Submit</button>        
+        </div>
+      </div>      -->
       <div class="table-responsive">
         <table id="mytable" class="table table-bordred table-striped">
           <thead>

@@ -17,19 +17,19 @@ export class AppComponent {
   searchText: string;
   addressBookList: any[] = [];
   bsModalRef: BsModalRef;
-  searchAddressBookForm: FormGroup;
+  // searchAddressBookForm: FormGroup;
 
   constructor(private addressBookService: AddressBookService, private bsModalService: BsModalService) {
     this.getAddressBooks();
   }
 
-  onSearchAddressBookFormSubmit(){
-    this.addressBookService.searchAddressBook(this.searchAddressBookForm.get('searchText').value).subscribe(data => {
-      Object.assign(this.addressBookList, data);
-    }, error => {
-      console.log("Error while getting address books", error);
-    });
-  }
+  // onSearchAddressBookFormSubmit(){
+  //   this.addressBookService.searchAddressBook(this.searchAddressBookForm.get('searchText').value).subscribe(data => {
+  //     Object.assign(this.addressBookList, data);
+  //   }, error => {
+  //     console.log("Error while getting address books", error);
+  //   });
+  // }
 
   searchAddressBook(searchText: string){
     this.addressBookService.searchAddressBook(searchText).subscribe(data => {
